@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>A Little Birthday Surprise ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#ffe3ef;--bg2:#e8defa;--bg3:#fff1e0;--ink:#5a3550;--card:rgba(255,255,255,.55);--pink:#ff6fa5;--gold:#e8b86a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#4a2a44}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Poppins,system-ui,sans-serif;color:var(--ink);background:linear-gradient(135deg,var(--bg1),var(--bg2) 55%,var(--bg3));overflow-x:hidden;transition:background 1s}
+body.night{background:linear-gradient(#0d0b2a,#2a1b55);color:#fff}
+.hand{font-family:Caveat,cursive,serif}
+#app{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;position:relative;z-index:2}
+.card{background:var(--card);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.7);border-radius:28px;padding:28px;max-width:460px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(255,111,165,.2);animation:in .7s ease both}
+@keyframes in{from{opacity:0;transform:translateY(24px) scale(.97)}}
+h1,h2{font-family:Caveat,cursive;font-size:2.4rem;margin:.2em 0;line-height:1.1}
+p{margin:.4em 0}
+input,textarea{width:100%;padding:12px;border-radius:14px;border:1px solid #e9c5d9;background:#fff9;font:inherit;color:#5a3550;margin:6px 0}
+label{display:block;text-align:left;font-size:.85rem;font-weight:600;margin-top:8px}
+button{font:inherit;font-weight:600;border:0;border-radius:999px;padding:13px 26px;margin:8px 4px;cursor:pointer;background:linear-gradient(135deg,#ff6fa5,#ff9acb);color:#fff;box-shadow:0 8px 24px rgba(255,111,165,.4);transition:transform .2s}
+button:hover{transform:scale(1.05)}button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+button.alt{background:#fff;color:var(--ink);box-shadow:0 4px 14px #0001}
+.glow{animation:glow 1.6s infinite}@keyframes glow{50%{box-shadow:0 0 36px 8px rgba(255,111,165,.7)}}
+.photo{width:200px;height:200px;object-fit:cover;border-radius:50%;border:6px solid #fff;box-shadow:0 10px 30px #0003;margin:10px auto;display:block}
+.polaroid{background:#fff;padding:10px 10px 30px;border-radius:6px;display:inline-block;transform:rotate(-3deg);box-shadow:0 12px 30px #0003}.polaroid img{width:220px;height:220px;object-fit:cover;display:block}
+.fl{position:fixed;bottom:-40px;font-size:22px;animation:rise linear forwards;z-index:1;pointer-events:none}
+@keyframes rise{to{transform:translateY(-115vh) rotate(40deg);opacity:0}}
+#prog{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));left:0;right:0;display:flex;gap:6px;justify-content:center;z-index:5}
+#prog i{width:26px;height:5px;border-radius:9px;background:#fff8}#prog i.on{background:var(--pink)}
+#snd{position:fixed;right:14px;top:calc(22px + env(safe-area-inset-top,0px));z-index:6;padding:8px 12px;margin:0}
+.balloons{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.bl{height:130px;border-radius:50% 50% 48% 48%;font-size:1.3rem;color:#fff;animation:bob 3s ease-in-out infinite;position:relative;margin:0}
+.bl:nth-child(2){animation-delay:.6s}.bl:nth-child(3){animation-delay:1.2s}
+@keyframes bob{50%{transform:translateY(-10px) rotate(3deg)}}
+.bl.pop{animation:pop .4s forwards}@keyframes pop{50%{transform:scale(1.3)}}
+.bl.done{background:#fff!important;color:var(--ink);box-shadow:none;animation:none;font-family:Caveat;font-size:2rem;height:80px;border-radius:20px}
+.cake{font-size:5.5rem;position:relative}.flame{font-size:2.6rem;display:block;animation:fk .3s infinite alternate;margin-bottom:-14px}
+@keyframes fk{to{transform:scale(1.12) rotate(4deg)}}.flame.off{animation:none;opacity:0;transform:translateY(-30px) scale(.2);transition:1s}
+.star{position:fixed;width:3px;height:3px;background:#fff;border-radius:50%;animation:tw 2s infinite alternate;z-index:1}@keyframes tw{to{opacity:.1;transform:scale(2)}}
+.env{font-size:6rem;cursor:pointer;animation:bob 2.5s infinite}
+.letter{background:#fffdf5;border-radius:14px;padding:20px;text-align:left;font-family:Caveat;font-size:1.45rem;line-height:1.3;max-height:52vh;overflow:auto;animation:slide 1s both;box-shadow:0 0 30px #ff9acb88;white-space:pre-line}
+@keyframes slide{from{transform:translateY(60px);opacity:0}}
+.gift{font-size:7rem;cursor:pointer;animation:bounce 1.4s infinite;display:inline-block;filter:drop-shadow(0 0 16px gold)}.gift:hover{transform:scale(1.1)}
+@keyframes bounce{50%{transform:translateY(-16px)}}
+.err{color:#c0305f;font-size:.85rem}.sm{font-size:.8rem;opacity:.8}
+.link{word-break:break-all;background:#fff;padding:10px;border-radius:12px;font-size:.85rem;margin:8px 0}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important}}
+</style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script></head><body>
+<div id="prog" hidden></div><button id="snd" class="alt" hidden aria-label="Toggle sound">🔇</button><div id="app"></div>
+<script>
+const $=s=>document.querySelector(s),app=$('#app');
+let D=null,page=0;
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function fx(chars='❤️✨🎉💖',n=22){for(let i=0;i<n;i++){const e=document.createElement('span');e.className='fl';e.textContent=chars[[...chars].length?Math.floor(Math.random()*[...chars].length):0]||'❤️';e.textContent=[...chars][Math.floor(Math.random()*[...chars].length)];e.style.left=Math.random()*100+'vw';e.style.animationDuration=(3+Math.random()*4)+'s';e.style.animationDelay=Math.random()*1.5+'s';e.style.fontSize=(14+Math.random()*22)+'px';document.body.appendChild(e);setTimeout(()=>e.remove(),9000)}}
+// ---- music: chosen song (default / custom upload) or soft built-in melody; starts only on a tap
+const CFG={url:"https://oprvndokyxovujrdpdry.supabase.co",key:"sb_publishable_nMGKtfrHO5Pq_aOvNjbGMw_CfvULAGM"};
+const sb=(CFG.url.startsWith('http')&&window.supabase)?supabase.createClient(CFG.url,CFG.key):null;
+const DEFAULT_SONG="song.mp3";
+const au=new Audio();au.loop=true;au.preload='auto';
+let ac,mOn=false,mt;
+function note(f,t){const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.06,t+.05);g.gain.exponentialRampToValueAtTime(.0001,t+.9);o.connect(g).connect(ac.destination);o.start(t);o.stop(t+1)}
+function tune(){if(!mOn||au.src)return;const m=[392,440,494,523,494,440,392,330];m.forEach((f,i)=>note(f,ac.currentTime+i*.6));mt=setTimeout(tune,m.length*600)}
+function setMusic(on){mOn=on;$('#snd').textContent=on?'🔊':'🔇';clearTimeout(mt);if(on){if(au.src)au.play().catch(()=>{});else{ac=ac||new AudioContext();ac.resume();tune()}}else au.pause()}
+$('#snd').onclick=()=>setMusic(!mOn);
+function b64(file){return new Promise((r,j)=>{const f=new FileReader();f.onload=()=>r(f.result.split(',')[1]);f.onerror=()=>j('Could not read that song.');f.readAsDataURL(file)})}
+// ---- image: resize to small jpeg data URL
+function shrink(file,max=420){return new Promise((res,rej)=>{if(!/^image\/(jpeg|png|webp)$/.test(file.type))return rej('Please choose a JPG, PNG or WebP image.');if(file.size>12e6)return rej('Image is too large (max 12 MB).');const im=new Image();im.onload=()=>{const s=Math.min(1,max/Math.min(im.width,im.height)),w=im.width*s,h=im.height*s,c=document.createElement('canvas'),S=Math.min(w,h);c.width=c.height=S;c.getContext('2d').drawImage(im,(w-S)/2/s,(h-S)/2/s,S/s,S/s,0,0,S,S);res(c.toDataURL('image/jpeg',.72))};im.onerror=()=>rej('Could not read that image.');im.src=URL.createObjectURL(file)})}
+// ---- creator
+function creator(){
+ setMusic(false);au.removeAttribute('src');
+ $('#prog').hidden=true;$('#snd').hidden=true;document.body.classList.remove('night');
+ const f={p1:null,p2:null};
+ app.innerHTML=`<div class="card"><div style="font-size:2.4rem">🎁</div><h1>Create a Little Birthday Magic ✨</h1><p>Make someone feel extra special with a surprise made just for them.</p>
+ <label>Birthday person's name *<input id="n" maxlength="40" placeholder="person name"></label>
+ <label>Birthday date *<input id="d" type="date"></label>
+ <label>Their photograph * (drop or choose)<input id="p1" type="file" accept="image/*"></label><img id="v1" class="photo" hidden alt="Preview">
+ <label>Another photo (optional)<input id="p2" type="file" accept="image/*"></label>
+ <label>Personal message (optional)<textarea id="m" rows="4" maxlength="900" placeholder="Leave empty for our sweet default letter"></textarea></label>
+ <label>Background song<select id="sg" style="width:100%;padding:12px;border-radius:14px;border:1px solid #e9c5d9;margin:6px 0"><option value="default">Thalaiyae Theva Illa BGM (default)</option><option value="custom">Upload my own song…</option><option value="synth">Soft built-in melody</option></select></label><input id="sf" type="file" accept="audio/*" hidden><p class="sm" id="sn" hidden>MP3/M4A/WAV, up to 10 MB.</p>
+ <p id="e" class="err" role="alert"></p><button id="go" class="glow">Create Birthday Surprise ❤️</button></div>`;
+ for(const k of ['p1','p2'])$('#'+k).onchange=async e=>{$('#e').textContent='';const fl=e.target.files[0];if(!fl){f[k]=null;if(k=='p1')$('#v1').hidden=true;return}try{f[k]=await shrink(fl);if(k=='p1'){$('#v1').src=f[k];$('#v1').hidden=false}}catch(x){f[k]=null;e.target.value='';$('#e').textContent=x}};
+ app.ondragover=e=>e.preventDefault();app.ondrop=e=>{e.preventDefault();const fl=e.dataTransfer.files[0];if(fl){const dt=new DataTransfer();dt.items.add(fl);$('#p1').files=dt.files;$('#p1').onchange({target:$('#p1')})}};
+ $('#sg').onchange=()=>{const c=$('#sg').value=='custom';$('#sf').hidden=!c;$('#sn').hidden=!c};
+ $('#go').onclick=async()=>{const n=$('#n').value.trim(),d=$('#d').value,e=$('#e');
+  if(!n)return e.textContent='Please enter their name.';if(!d)return e.textContent='Please pick the birthday date.';if(!f.p1)return e.textContent='Please upload their photograph.';
+  const sk=$('#sg').value,sfl=$('#sf').files[0];if(sk=='custom'){if(!sfl)return e.textContent='Please choose your song file.';if(!sfl.type.startsWith('audio/'))return e.textContent='That file is not an audio file.';if(sfl.size>10e6)return e.textContent='Song is too large (max 10 MB).'}
+  if(!sb)return e.textContent='Setup incomplete: add your Supabase URL and key in index.html.';
+  const id='b'+[...crypto.getRandomValues(new Uint8Array(10))].map(x=>(x%36).toString(36)).join('');
+  $('#go').disabled=true;$('#go').textContent='Wrapping your surprise…';
+  try{let su='';if(sk=='custom'){const path=id+'-'+sfl.name.replace(/[^\w.]/g,'_');const u=await sb.storage.from('songs').upload(path,sfl,{contentType:sfl.type});if(u.error)throw u.error;su=sb.storage.from('songs').getPublicUrl(path).data.publicUrl}
+   const r=await sb.from('birthday_surprises').insert({share_id:id,recipient_name:n,birthday_date:d,primary_photo_url:f.p1,additional_photo_url:f.p2||null,personal_message:$('#m').value.trim()||null,song:sk,song_url:su||null});if(r.error)throw r.error;shareScreen(id,n)}
+  catch(x){e.textContent='Could not save: '+(x.message||x.code||'please try again.');$('#go').disabled=false;$('#go').textContent='Create Birthday Surprise ❤️'}};
+}
+function shareScreen(id,n){
+ const url=location.href.split('#')[0]+'#'+id;fx();
+ app.innerHTML=`<div class="card"><h1>Surprise ready! 🎉</h1><p>Send this link to ${esc(n)}:</p><div class="link" id="u">${esc(url)}</div>
+ <button id="cp">Copy Link</button><a href="https://wa.me/?text=${encodeURIComponent('I made something special for you ❤️ '+url)}" target="_blank" rel="noopener"><button class="alt">Share on WhatsApp</button></a>
+ <p class="sm">Anyone you share the artifact with can open it. Use Share to give them access.</p><button class="alt" id="pv">Preview it ↻</button></div>`;
+ $('#cp').onclick=async()=>{try{await navigator.clipboard.writeText(url);$('#cp').textContent='Copied ✓'}catch{const r=document.createRange();r.selectNode($('#u'));getSelection().addRange(r);$('#cp').textContent='Select & copy'}};
+ $('#pv').onclick=()=>{location.hash=id};
+}
+// ---- recipient journey
+const pgs=[p1,p2,p3,p4,p5,p6];
+function start(){$('#prog').hidden=false;$('#snd').hidden=false;go(0)}
+function go(i){page=i;document.body.classList.toggle('night',i==3);$('#prog').innerHTML=pgs.map((_,k)=>`<i class="${k<=i?'on':''}"></i>`).join('');pgs[i]()}
+const nm=()=>esc(D.name);
+function p1(){const dt=new Date(D.date+'T00:00').toLocaleDateString(undefined,{day:'numeric',month:'long',year:'numeric'});fx('❤️🎈✨',16);
+ app.innerHTML=`<div class="card"><div style="font-size:2rem">🎂🎈🎉</div><h1>Happy Birthday, ${nm()}! ❤️</h1><p>${esc(dt)}</p><div class="polaroid"><img src="${esc(D.p1)}" alt="${nm()}"></div><h2 style="font-size:1.8rem">Are you excited for what's next?</h2>
+ <div style="position:relative;min-height:70px"><button id="y" class="glow">YES! ❤️</button><button id="no" class="alt">NO 🙈</button></div></div>`;
+ $('#y').onclick=()=>{fx('🎉❤️✨',30);go(1)};
+ const no=$('#no');const run=e=>{e.preventDefault&&e.preventDefault();no.style.position='fixed';const y=$('#y').getBoundingClientRect();let x,t,k=0;do{x=Math.random()*(innerWidth-110);t=Math.random()*(innerHeight-60)+20;k++}while(k<20&&x<y.right+10&&x+110>y.left-10&&t<y.bottom+10&&t+50>y.top-10);no.style.left=x+'px';no.style.top=t+'px'};
+ no.onmouseenter=run;no.ontouchstart=run;no.onclick=run;no.onfocus=run}
+function p2(){const w=['You','are','so','Special'],c=['#ff6fa5','#b48cf2','#ffb36b','#6cc8e8'];let left=4;
+ app.innerHTML=`<div class="card"><h1>Pop All 4 Balloons!</h1><p id="c">4 balloons left</p><div class="balloons">${w.map((x,i)=>`<button class="bl" data-i="${i}" style="background:${c[i]}" aria-label="Balloon ${i+1}">🎈</button>`).join('')}</div><div id="r"></div></div>`;
+ document.querySelectorAll('.bl').forEach(b=>b.onclick=()=>{if(b.classList.contains('done')||b.classList.contains('pop'))return;b.classList.add('pop');fx('🎊✨',8);setTimeout(()=>{b.classList.remove('pop');b.classList.add('done');b.textContent=w[b.dataset.i]},350);left--;$('#c').textContent=left?left+' balloons left':'All popped!';
+  if(!left)setTimeout(()=>{fx();$('#r').innerHTML=`<h2>You Are So Special! ❤️</h2><div class="polaroid"><img src="${esc(D.p1)}" alt=""></div><br><button id="nx">Continue →</button>`;$('#nx').onclick=()=>go(2)},700)})}
+function p3(){let done=false;
+ app.innerHTML=`<div class="card"><h1>Blow the Candle, ${nm()}!</h1><div class="cake"><span class="flame" id="fl">🔥</span>🎂</div><p class="sm" id="hint">We'll ask to use your microphone only to hear you blow. Nothing is recorded.</p><button id="mic">🎤 Blow into the Mic</button><button id="tap" class="alt">Tap to Blow</button></div>`;
+ let st,raf;const out=()=>{if(done)return;done=true;cancelAnimationFrame(raf);st&&st.getTracks().forEach(t=>t.stop());$('#fl').classList.add('off');fx('💨✨',14);setTimeout(()=>go(3),1800)};
+ $('#tap').onclick=out;
+ $('#mic').onclick=async()=>{try{st=await navigator.mediaDevices.getUserMedia({audio:true});const a=new AudioContext(),s=a.createMediaStreamSource(st),an=a.createAnalyser();an.fftSize=512;s.connect(an);const buf=new Uint8Array(an.fftSize);$('#hint').textContent='Listening… blow gently at your mic!';let hits=0;
+  const L=()=>{an.getByteTimeDomainData(buf);let m=0;for(const v of buf)m=Math.max(m,Math.abs(v-128));hits=m>60?hits+1:Math.max(0,hits-1);if(hits>6)return out();raf=requestAnimationFrame(L)};L()}catch{$('#hint').textContent='Microphone unavailable, no worries — tap to blow instead!'}}}
+function p4(){const w=document.createElement('div');for(let i=0;i<50;i++){const s=document.createElement('i');s.className='star';s.style.left=Math.random()*100+'vw';s.style.top=Math.random()*100+'vh';s.style.animationDelay=Math.random()*2+'s';w.appendChild(s)}document.body.appendChild(w);
+ app.innerHTML=`<div class="card" style="background:#ffffff14;border-color:#fff3;box-shadow:0 0 60px #b48cf244"><div style="font-size:3rem">🌙</div><h1>Close Your Eyes &amp; Make a Wish</h1><div style="font-size:2.4rem;letter-spacing:4px;margin:6px">11:11 ✨</div><p class="hand" style="font-size:1.5rem">May every little dream in your heart find its way into reality.</p><div id="r" style="min-height:70px"></div></div>`;
+ setTimeout(()=>{$('#r').innerHTML='<button id="nx">Continue →</button>';$('#nx').onclick=()=>{w.remove();go(4)}},4500)}
+function p5(){const def=`Dear ${D.name},\n\nOn your special day, I just want you to know how amazing and special you are.\n\nMay this new chapter bring endless happiness, beautiful memories, exciting adventures, and countless reasons to smile.\n\nMay all your dreams slowly turn into reality, and may life surprise you with everything your heart has been wishing for.\n\nNever stop smiling, keep shining, and always remember how special you are.\n\nHere's to another beautiful year of YOU! ❤️\n\nWith lots of love.`;
+ app.innerHTML=`<div class="card"><h1>A Message From My Heart</h1><div id="b"><div class="env" id="env" role="button" tabindex="0" aria-label="Open the envelope">💌</div><p class="sm">Tap to open</p></div></div>`;
+ const open=()=>{fx('💖',18);$('#b').innerHTML=`<div class="letter">${D.msg?`Dear ${esc(D.name)},\n\n${esc(D.msg)}`:esc(def)}</div><button id="nx">Continue →</button>`;$('#nx').onclick=()=>go(5)};
+ $('#env').onclick=open;$('#env').onkeydown=e=>{if(e.key=='Enter'||e.key==' ')open()}}
+function p6(){app.innerHTML=`<div class="card"><h1>One Last Thing… 🎁</h1><div id="b"><div class="gift" id="g" role="button" tabindex="0" aria-label="Open the gift">🎁</div></div></div>`;
+ const open=()=>{fx('❤️✨🎉💖',40);const ph=D.p2||D.p1;$('#b').innerHTML=`<div class="polaroid"><img src="${esc(ph)}" alt=""></div><h2>Lots of Love for You ❤️</h2><p>Once Again, Happy Birthday, ${nm()}!</p><p class="hand" style="font-size:1.6rem">Keep Smiling. Keep Shining. Stay Special. ✨</p><button id="rp">Replay Your Surprise ↻</button>`;$('#rp').onclick=()=>go(0)};
+ $('#g').onclick=open;$('#g').onkeydown=e=>{if(e.key=='Enter'||e.key==' ')open()}}
+// ---- boot
+async function route(){const id=location.hash.slice(1);
+ if(!id)return creator();
+ app.innerHTML='<div class="card"><div style="font-size:3rem;animation:bounce 1s infinite">🎁</div><p>Unwrapping your surprise…</p></div>';
+ if(!sb)return app.innerHTML='<div class="card"><h2>Setup incomplete</h2><p>Supabase is not configured.</p></div>';
+ try{const q=await sb.rpc('get_surprise',{sid:id});if(q.error)throw q.error;const s=q.data&&q.data[0];if(!s)return app.innerHTML='<div class="card"><h2>Hmm, no surprise here 🙈</h2><p>This link may be mistyped. Ask the sender to share it again.</p><button id="h">Create my own</button></div>',$('#h').onclick=()=>{location.hash=''};
+  D={name:s.recipient_name,date:s.birthday_date,p1:s.primary_photo_url,p2:s.additional_photo_url||'',msg:s.personal_message||'',song:s.song};au.removeAttribute('src');if(s.song=='default')au.src=DEFAULT_SONG;else if(s.song=='custom'&&s.song_url)au.src=s.song_url;
+  app.innerHTML=`<div class="card"><h1>A surprise for ${nm()} 🎁</h1><p class="sm">Music plays when you open it. Mute anytime with the speaker button.</p><button class="glow" id="op">Open Your Surprise ❤️</button></div>`;$('#op').onclick=()=>{setMusic(true);start()}}
+ catch(x){app.innerHTML='<div class="card"><h2>Oops 😢</h2><p>We couldn’t load this surprise. Please try again.</p></div>'}}
+window.addEventListener('hashchange',route);
+route();
+
+</script></body></html>
