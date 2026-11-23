@@ -117,7 +117,7 @@ function p2(){const w=['You','are','so','Special'],c=['#ff6fa5','#b48cf2','#ffb3
 function p3(){let done=false;
  app.innerHTML=`<div class="card"><h1>Blow the Candle, ${nm()}!</h1><div class="cake"><span class="flame" id="fl">🔥</span>🎂</div><p class="sm" id="hint">Tap the button to blow out the candle!</p><button id="tap" class="glow">Tap to Blow 💨</button>`;
  let st,raf;const out=()=>{if(done)return;done=true;cancelAnimationFrame(raf);st&&st.getTracks().forEach(t=>t.stop());$('#fl').classList.add('off');fx('💨✨',14);setTimeout(()=>go(3),1800)};
- $('#tap').onclick=out;
+ $('#tap').onclick=out;}
 function p4(){const w=document.createElement('div');for(let i=0;i<50;i++){const s=document.createElement('i');s.className='star';s.style.left=Math.random()*100+'vw';s.style.top=Math.random()*100+'vh';s.style.animationDelay=Math.random()*2+'s';w.appendChild(s)}document.body.appendChild(w);
  app.innerHTML=`<div class="card" style="background:#ffffff14;border-color:#fff3;box-shadow:0 0 60px #b48cf244"><div style="font-size:3rem">🌙</div><h1>Close Your Eyes &amp; Make a Wish</h1><div style="font-size:2.4rem;letter-spacing:4px;margin:6px">11:11 ✨</div><p class="hand" style="font-size:1.5rem">May every little dream in your heart find its way into reality.</p><div id="r" style="min-height:70px"></div></div>`;
  setTimeout(()=>{$('#r').innerHTML='<button id="nx">Continue →</button>';$('#nx').onclick=()=>{w.remove();go(4)}},4500)}
